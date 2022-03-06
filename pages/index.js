@@ -1,11 +1,28 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styled from 'styled-components'
+import NavBar from '../components/navbar'
+import Text from '../components/Text'
+import Style from '../styles/Home.module.css'
+
+
+const Container = styled.div`
+  height:100vh;
+  overflow: hidden;
+  position:relative;
+`
+
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      Hello World
+    <div className={Style.main}>
+    <Head>
+      <title>FireSide</title>
+
+    </Head>
+    <Container>
+      <NavBar logolink="/" login="/login" signup="/signup" />
+      <Text />
+    </Container>
     </div>
   )
 }
