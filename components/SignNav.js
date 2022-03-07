@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import * as React from 'react'
+import Style from '../styles/Home.module.css'
 
 const Container = styled.div`
     height: 104px;
@@ -17,6 +18,7 @@ const Left = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 35px;
+    cursor:pointer ;
 `
 const Right = styled.div`
     display: flex;
@@ -51,21 +53,24 @@ const Button = styled.button`
         background-color: #3772FF;
     }
 `
+const Icon = styled.i`
+  color:#e6e6e6 ;
+`
 
-const SignNav = ({butn}) => {
+const SignNav = ({butn, link, btnlin}) => {
 
 
   return (
     <Container>
       <Wrapper>
         <Left>
-
+          <a href={link}><i className="fi fi-rr-home" style={{color:"#e6e6e6"}}  ></i></a>
         </Left>
         <Center>
           <Logo>FireSide</Logo>
         </Center>
         <Right>
-          <Button>{butn}</Button>
+          <a href={btnlin}><Button>{butn}</Button></a>
         </Right>
       </Wrapper>
     </Container>

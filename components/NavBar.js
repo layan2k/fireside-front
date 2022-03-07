@@ -86,6 +86,7 @@ const Button = styled.button`
     }
 `
 
+
 const NavBar = ({logolink, login, signup}) => {
   return (
     <Container>

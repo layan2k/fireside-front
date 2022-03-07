@@ -5,3 +5,11 @@
   box-shadow: 0 4px 8 0 rgba(0, 0, 0, 0.2), 0 6px 20ox 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
 }
+.iconmain{
+  color: #e6e6e6;
+  height: 44px;
+  width: 41px;
+  cursor: pointer;
+
+}
+
