@@ -2,6 +2,9 @@ import styled from "styled-components"
 import SignNav from "../components/SignNav"
 import Head from "next/head"
 import Link from "next/link"
+import axiosInstance from '../components/axios'
+import {useRouter} from 'next/router'
+import { useState } from 'react'
 
 const Container = styled.div`
   height:100vh;
@@ -70,20 +73,55 @@ const Lin = styled.span`
 
 
 
-const signup = () => {
+const Signup = () => {
+  const router = useRouter()
+
+  const InitialFormFata = Object.freeze({
+    username: '',
+    email: '',
+    password: '',
+  })
+
+const [formData, updateFormData] = useState(InitialFormFata);
+
+const handleChange = (e) => {
+  updateFormData({
+    ...formData,
+    // Trimming any Whitespace
+    [e.target.name]: e.target.value.trim(),
+  })
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(formData);
+
+  axiosInstance
+    .post(`/auth/users/`, {
+      username: formData.username,
+      email: formData.email,
+      password: formData.password,
+
+    })
+    .then((res) => {
+      router.push('/login');
+      console.log(res);
+      console.log(res.data);
+    });
+};
+
   return (
     <><Head>
-      <title>SignIn</title>
+      <title>SignUp</title>
     </Head>
     <Container>
       <SignNav butn="Sign In" btnlin="/login" link="/" />
       <SignUp>
-        <Form>
-          <TypIn type="text" placeholder="Username"></TypIn>
-          <TypIn type="text" placeholder="Email"></TypIn>
-          <TypIn type="password" placeholder="Password"></TypIn>
-          <TypIn type="password" placeholder="Retype-Password"></TypIn>
-          <Button>Create</Button>
+        <Form method="POST">
+          <TypIn onChange={handleChange} type="text" placeholder="Username" name="username" id="username" required></TypIn>
+          <TypIn onChange={handleChange} type="text" placeholder="Email" name="email" id="email" required></TypIn>
+          <TypIn onChange={handleChange} type="password" placeholder="Password" name="password" id="password" required></TypIn>
+          <Button onClick={handleSubmit}>Create</Button>
           <Message>Already registered? <Lin><Link href="/login">Sign In</Link></Lin></Message>
         </Form>
       </SignUp>
@@ -94,4 +132,4 @@ const signup = () => {
   )
 }
 
-export default signup
+export default Signup

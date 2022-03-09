@@ -2,6 +2,9 @@ import styled from "styled-components"
 import SignNav from "../components/SignNav"
 import Head from "next/head"
 import Link from "next/link"
+import axiosInstance from '../components/axios'
+import Router from 'next/router'
+import { useState } from 'react'
 
 const Container = styled.div`
   height:100vh;
@@ -10,7 +13,7 @@ const Container = styled.div`
   background-color: #080708;
 
 `
-const Login = styled.div`
+const LoginCon = styled.div`
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
@@ -70,21 +73,56 @@ const Lin = styled.span`
 
 
 
-const login = () => {
-  return (
+const Login = () => {
+  const InitialFormFata = Object.freeze({
+    username: '',
+    password: '',
+  })
+
+const [formData, updateFormData] = useState(InitialFormFata);
+
+const handleChange = (e) => {
+  updateFormData({
+    ...formData,
+    // Trimming any Whitespace
+    [e.target.name]: e.target.value.trim(),
+  })
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(formData);
+
+  axiosInstance
+    .post(`/auth/jwt/create`, {
+      username: formData.username,
+      password: formData.password,
+    })
+    .then((res) => {
+      localStorage.setItem('access_token', res.data.access);
+      localStorage.setItem('refresh_token', res.data.refresh);
+      axiosInstance.defaults.headers['Authorization'] =
+        'JWT ' + localStorage.getItem('access_token');
+				Router.push('/');
+				//console.log(res);
+				//console.log(res.data);
+			});
+	};
+
+        return (
     <><Head>
       <title>SignIn</title>
     </Head>
     <Container>
-      <SignNav butn="Sign Up" btnlin="/signu[" link="/" />
-      <Login>
+      <SignNav butn="Sign Up" btnlin="/signup" link="/" />
+      <LoginCon>
         <Form>
-          <TypIn type="text" placeholder="Username"></TypIn>
-          <TypIn type="password" placeholder="Password"></TypIn>
-          <Button>login</Button>
+          <TypIn type="text" placeholder="Username" name="username" id="username" onChange={handleChange} required></TypIn>
+          <TypIn type="password" placeholder="Password" onChange={handleChange} name="password" id="password" required></TypIn>
+          <Button onClick={handleSubmit}>login</Button>
           <Message>Not Registered? <Lin><Link href="/signup">Create an account</Link></Lin></Message>
         </Form>
-      </Login>
+      </LoginCon>
 
     </Container>
 
@@ -92,4 +130,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login
