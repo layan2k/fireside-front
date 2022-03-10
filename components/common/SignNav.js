@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import * as React from 'react'
-import Style from '../styles/Home.module.css'
+
 
 const Container = styled.div`
     height: 104px;

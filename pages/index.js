@@ -1,28 +1,12 @@
-import Head from 'next/head'
-import styled from 'styled-components'
-import NavBar from '../components/navbar'
-import Text from '../components/Text'
-import Style from '../styles/Home.module.css'
+import React from 'react'
+import Home from '../components/index'
 
-
-const Container = styled.div`
-  height:100vh;
-  overflow: hidden;
-  position:relative;
-`
-
-
-export default function Home() {
+const index = () => {
   return (
-    <div className={Style.main}>
-    <Head>
-      <title>FireSide</title>
-
-    </Head>
-    <Container>
-      <NavBar logolink="/" login="/login" signup="/signup" />
-      <Text />
-    </Container>
-    </div>
+    <>
+    <Home />
+    </>
   )
 }
+
+export default index
