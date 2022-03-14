@@ -1,11 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React from 'react'
+import Home from '../components/index'
 
-export default function Home() {
+const index = () => {
   return (
-    <div className={styles.container}>
-      Hello World
-    </div>
+    <>
+    <Home />
+    </>
   )
 }
+
+export default index
