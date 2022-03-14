@@ -16,6 +16,9 @@ const LoginCon = styled.div`
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+  @media only screen and (max-width:480px){
+       width: 100%;
+    }
 `
 const Form = styled.form`
   position: relative;
@@ -26,6 +29,12 @@ const Form = styled.form`
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  @media only screen and (max-width:480px){
+      width: 100%;
+      margin-top: 25px;
+      background: none;
+      box-shadow: none;
+    }
 `
 const TypIn = styled.input`
   font-family: "Roboto", sans-serif;
@@ -37,6 +46,9 @@ const TypIn = styled.input`
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+  @media only screen and (max-width:480px){
+    margin-top: 30px;
+    }
 `
 
 const Button = styled.button`
@@ -58,6 +70,9 @@ const Button = styled.button`
 `
 
 const Message = styled.p`
+  @media only screen and (max-width:480px){
+    color: #e6e6e6;
+    }
 
 `
 const Lin = styled.span`
@@ -69,9 +84,6 @@ const Lin = styled.span`
 `
 const Link = styled.a`
 `
-
-
-
 
 
 const Login = () => {

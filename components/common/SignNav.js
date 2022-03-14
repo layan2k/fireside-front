@@ -3,7 +3,7 @@ import * as React from 'react'
 
 
 const Container = styled.div`
-    height: 104px;
+    height: 80px;
     background-color: #080708;
 `
 const Wrapper = styled.div`
@@ -12,6 +12,8 @@ const Wrapper = styled.div`
     align-items: center;
     padding-left: 130px;
     padding-right: 130px;
+    padding-top: 20px;
+    border-bottom:solid 1px #e6e6e6 ;
 `
 const Left = styled.div`
     display: flex;
@@ -52,22 +54,41 @@ const Button = styled.button`
     &:hover{
         background-color: #3772FF;
     }
+    @media only screen and (max-width:480px){
+        display: none;
+    }
 `
-const Icon = styled.i`
-  color:#e6e6e6 ;
-`
+
+const ISSERVER = typeof window === "undefined"
+
+const SmallScreen =() => {
+  let screen = ''
+  if(!ISSERVER){
+      screen = window.screen.width <= 480 ? true : false
+  }
+  return screen
+}
+
 
 const SignNav = ({butn, link, btnlin}) => {
 
-
+const bigScreen = SmallScreen()
   return (
     <Container>
       <Wrapper>
         <Left>
-          <a href={link}><i className="fi fi-rr-home" style={{color:"#e6e6e6"}}  ></i></a>
+        {!bigScreen &&
+          <a href={link}><i className="fi fi-rr-home" style={{color:"#e6e6e6", fontSize:"30px"}}  ></i></a>
+        }
         </Left>
         <Center>
+          {!bigScreen &&
           <Logo>FireSide</Logo>
+          }
+          {
+            bigScreen &&
+            <a href={link}><Logo>FireSide</Logo></a>
+          }
         </Center>
         <Right>
           <a href={btnlin}><Button>{butn}</Button></a>
