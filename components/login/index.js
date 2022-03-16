@@ -116,10 +116,12 @@ const handleSubmit = (e) => {
       localStorage.setItem('refresh_token', res.data.refresh);
       axiosInstance.defaults.headers['Authorization'] =
         'JWT ' + localStorage.getItem('access_token');
-				Router.push('/');
+				Router.push('/profiles');
 				//console.log(res);
 				//console.log(res.data);
-			});
+			}).catch((err) =>{
+        console.log(err)
+      });
 	};
 
         return (
