@@ -46,6 +46,16 @@ const MenuIcon = styled.div`
   margin-left: 3px;
 ;
 `
+
+const Footer = styled.footer`
+    color: #e6e6e6;
+    margin-top: 90px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #010b13;
+    height: 25px;
+    align-items: center;
+`
 const ISSERVER = typeof window === "undefined"
 
 const SmallScreen =() => {
@@ -79,6 +89,8 @@ export default function Home() {
       </MobileMenu>}
 
       <Text />
+
+      <Footer >©️Copyright FireSide 2022</Footer>
     </Container>
     </div>
   )

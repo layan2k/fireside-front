@@ -9,7 +9,7 @@ const Container = styled.div`
   height:100vh;
   overflow: hidden;
   position:relative;
-  background-color: #080708;
+  background-color: #010b20;
 
 `
 const LoginCon = styled.div`
@@ -55,7 +55,7 @@ const Button = styled.button`
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #DF2935;
+  background: #010b13;
   width: 100%;
   border: 0;
   padding: 15px;

@@ -48,21 +48,21 @@ const NavBarMobile = ({isOpen, setisOpen}, logolink) => {
     <MobileOptions>
         <MobileOption>
     <MobileOptionLink href="#projects" >
-    Get Started
+    Movies
         </MobileOptionLink>
         </MobileOption>
 
     <MobileOption>
         <MobileOptionLink href="#skills" >
-            Skills
+            TV Shows
         </MobileOptionLink>
     </MobileOption>
     <MobileOption>
-        <MobileOptionLink href="#resume" >Resume
+        <MobileOptionLink href="/login" >SignIn
         </MobileOptionLink>
     </MobileOption>
     <MobileOption>
-        <MobileOptionLink href="#contact" >Contact
+        <MobileOptionLink href="/signup" > Sign Up
         </MobileOptionLink>
     </MobileOption>
     </MobileOptions>

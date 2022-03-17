@@ -3,8 +3,8 @@ import * as React from 'react'
 
 
 const Container = styled.div`
-    height: 80px;
-    background-color: #080708;
+    height: 110px;
+    background-color: #010b13;
 `
 const Wrapper = styled.div`
   display: flex;
@@ -38,16 +38,16 @@ const Logo = styled.h1`
     font-weight: bold;
     color: #e6e6e6;
     padding: auto;
+    text-decoration: none;
 `
 const Button = styled.button`
-    background-color: red ;
-    padding: 5px 19px;
-    border: none;
+    background-color: #010b13 ;
+    border: 2px solid #e6e6e6;
     color: #e6e6e6;
     white-space: nowrap;
     font-size: 14px;
     width: 96px;
-    height: 30px;
+    height: 40px;
     margin-left:25px;
     margin-bottom: 15px;
     cursor: pointer;
@@ -78,7 +78,7 @@ const bigScreen = SmallScreen()
       <Wrapper>
         <Left>
         {!bigScreen &&
-          <a href={link}><i className="fi fi-rr-home" style={{color:"#e6e6e6", fontSize:"30px"}}  ></i></a>
+          <a href={link}><i className="fi fi-rr-home" style={{"color":"#e6e6e6", "fontSize":"30px", "textDecoration":"none"}}  ></i></a>
         }
         </Left>
         <Center>
@@ -87,11 +87,11 @@ const bigScreen = SmallScreen()
           }
           {
             bigScreen &&
-            <a href={link}><Logo>FireSide</Logo></a>
+            <a href={link} style={{"textDecoration":"none"}}><Logo>FireSide</Logo></a>
           }
         </Center>
         <Right>
-          <a href={btnlin}><Button>{butn}</Button></a>
+          <a href={btnlin} style={{"textDecoration":"none"}}><Button>{butn}</Button></a>
         </Right>
       </Wrapper>
     </Container>
