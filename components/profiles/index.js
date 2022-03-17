@@ -7,7 +7,7 @@ const Container = styled.div`
   height:100vh;
   overflow: hidden;
   position:relative;
-  background-color: #080708;
+  background-color: #010b20;
 `
 const Wrapper = styled.div`
     display: flex;
@@ -31,10 +31,11 @@ const CreateProfile = styled.a`
   display:flex ;
   align-items:center ;
   justify-content:center ;
-  background-color: #080708 ;
+  background-color: #010b13 ;
   border:2px solid #e6e6e6 ;
   padding:10px ;
   cursor:pointer ;
+  text-decoration: none;
   &:hover{
       background-color:#3772FF ;
   }
@@ -54,7 +55,6 @@ const ButtonContainer = styled.div`
 display: flex;
 margin-left: 610px;
 margin-right: 610px;
-
 margin-top: 40px;
 `
 const Profile = () => {

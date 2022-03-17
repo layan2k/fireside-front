@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Container = styled.div`
     height: 104px;
-    background-color: #080708;
+    background-color: #010b13;
 `
 const Wrapper = styled.div`
     display: flex;
@@ -18,24 +18,24 @@ const Left = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding-bottom: 35px;
+    padding-top: 20px;
 `
 const Right = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 35px;
+    padding-top: 20px;
 `
 const Center = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 35px;
+    padding-top: 20px;
 `
 const Logo = styled.h1`
     font-weight: bold;
     color: #e6e6e6;
-    padding: auto;
+    padding-bottom: 10px;
     cursor: pointer;
 `
 const Menu = styled.ul`
@@ -62,6 +62,7 @@ const Logi = styled.h5`
     font-size:14px ;
     text-decoration: underline #e6e6e6;
     font-weight: lighter;
+    padding-bottom:15px ;
     cursor: pointer;
     &:hover{
         color: #3772FF;
@@ -70,14 +71,13 @@ const Logi = styled.h5`
 
 `
 const Button = styled.button`
-    background-color: red ;
-    padding: 5px 19px;
-    border: none;
+    background-color: #010b13 ;
+    border: 2px solid #e6e6e6;
     color: #e6e6e6;
     white-space: nowrap;
     font-size: 14px;
     width: 96px;
-    height: 30px;
+    height: 40px;
     margin-left:25px;
     margin-bottom: 15px;
     cursor: pointer;
@@ -85,20 +85,23 @@ const Button = styled.button`
         background-color: #3772FF;
     }
 `
+const Pagein = styled.a`
+    text-decoration: none;
+`
 
 
 const NavBar = ({logolink, login, signup}) => {
   return (
     <Container>
         <Wrapper>
-        <Left><a href={logolink}><Logo>FireSide</Logo></a>
+        <Left><a href={logolink} style={{"textDecoration":"none"}}><Logo>FireSide</Logo></a>
         </Left>
             <Menu>
                 <Center>
-                <MenuItem>Get Started</MenuItem>
-                <MenuItem>Movies</MenuItem>
-                <MenuItem>TV Shows</MenuItem>
-                <MenuItem> Genre</MenuItem>
+                <Pagein href="/"></Pagein><MenuItem>Home</MenuItem>
+                <Pagein href="/login"><MenuItem>Movies</MenuItem></Pagein>
+                <Pagein href="/login"><MenuItem>TV Shows</MenuItem></Pagein>
+                <Pagein href="/login"><MenuItem> Genre</MenuItem></Pagein>
                 </Center>
             </Menu>
             <Right>

@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 
 const Container = styled.div`
-    height: 104px;
-    background-color: #080708;
+    height: 110px;
+    background-color: #010b13;
 `
 const Wrapper = styled.div`
     display: flex;
@@ -12,6 +12,7 @@ const Wrapper = styled.div`
     align-items: center;
     padding-left: 130px;
     padding-right: 130px;
+    padding-top: 20px;
 
 `
 const Left = styled.div`
@@ -30,7 +31,6 @@ const Center = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 35px;
 `
 const Logo = styled.h1`
     font-weight: bold;
@@ -63,7 +63,7 @@ const AcoountSqr = styled.button`
   display:flex ;
   align-items:center ;
   justify-content:center ;
-  background-color: #080708 ;
+  background-color: #010b13 ;
   border:2px solid #e6e6e6 ;
   border-radius: 30px ;
   padding:15px ;
@@ -88,14 +88,14 @@ const NavLog = ({logolink, login, signup}) => {
   return (
     <Container>
         <Wrapper>
-        <Left><a href={logolink}><Logo>FireSide</Logo></a>
+        <Left><a href={logolink} style={{"textDecoration":"None"}}><Logo>FireSide</Logo></a>
         </Left>
             <Menu>
                 <Center>
+                <MenuItem>Home</MenuItem>
                 <MenuItem>Movies</MenuItem>
                 <MenuItem>TV Shows</MenuItem>
                 <MenuItem> Genre</MenuItem>
-                <MenuItem> Subscription</MenuItem>
                 </Center>
             </Menu>
             <Right>

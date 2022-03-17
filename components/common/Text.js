@@ -44,7 +44,7 @@ const TypIn = styled.input`
     padding: 12px 20px;
     box-sizing: border-box;
     opacity: 0.4;
-    background-color: #080708;
+    background-color: #010b13;
     color: #e6e6e6;
     text-align: center;
     font-size: 16px;
@@ -56,7 +56,7 @@ const TypIn = styled.input`
         }
 `
 const Button = styled.button`
-    background-color: red ;
+    background-color: #010b20 ;
     padding: 10px 19px;
     border: none;
     color: #e6e6e6;
