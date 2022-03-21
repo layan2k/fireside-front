@@ -125,7 +125,8 @@ const handleSubmit = (e) => {
 	};
 
         return (
-    <><Head>
+    <>
+    <Head>
       <title>SignIn</title>
     </Head>
     <Container>
@@ -136,6 +137,7 @@ const handleSubmit = (e) => {
           <TypIn type="password" placeholder="Password" onChange={handleChange} name="password" id="password" required></TypIn>
           <Button onClick={handleSubmit}>login</Button>
           <Message>Not Registered? <Lin><Link href="/signup">Create an account</Link></Lin></Message>
+          <Lin><Link href="/signup">Forgot Password?</Link></Lin>
         </Form>
       </LoginCon>
 

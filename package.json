@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.0",
     "babel-plugin-styled-components": "^2.0.6",
     "bootstrap": "5.1.3",

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Link from 'next/link'
+
 
 
 const Container = styled.div`
@@ -13,6 +13,10 @@ const Wrapper = styled.div`
     padding-left: 130px;
     padding-right: 130px;
     padding-top: 20px;
+    @media only screen and (max-width:480px){
+       padding: 0;
+       flex-direction: column;
+    }
 
 `
 const Left = styled.div`
@@ -26,17 +30,29 @@ const Right = styled.div`
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 35px;
+    @media only screen and (max-width:480px){
+       display: none;
+    }
 `
 const Center = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media only screen and (max-width:480px){
+       display: none;
+    }
 `
 const Logo = styled.h1`
     font-weight: bold;
     color: #e6e6e6;
     padding: auto;
     cursor: pointer;
+    @media only screen and (max-width:480px){
+       justify-content: center;
+       align-items: center;
+       font-size: 35px;
+       margin-top: 25px;
+    }
 `
 const Menu = styled.ul`
     display: flex;
@@ -80,7 +96,10 @@ const AccountText = styled.span`
     color: #e6e6e6 ;
     margin-left:5px ;
     font-size:14px ;
+`
 
+const Link = styled.a`
+    text-decoration: none;
 `
 
 
@@ -88,14 +107,14 @@ const NavLog = ({logolink, login, signup}) => {
   return (
     <Container>
         <Wrapper>
-        <Left><a href={logolink} style={{"textDecoration":"None"}}><Logo>FireSide</Logo></a>
+        <Left><Link href="all"><Logo>FireSide</Logo></Link>
         </Left>
             <Menu>
                 <Center>
-                <MenuItem>Home</MenuItem>
-                <MenuItem>Movies</MenuItem>
-                <MenuItem>TV Shows</MenuItem>
-                <MenuItem> Genre</MenuItem>
+               <Link href="/all"><MenuItem>Home</MenuItem></Link>
+               <Link href="/movies"><MenuItem>Movies</MenuItem></Link>
+               <Link href="/tvshows"><MenuItem>TV Shows</MenuItem></Link>
+                <Link href="/genre"><MenuItem> Genre</MenuItem></Link>
                 </Center>
             </Menu>
             <Right>

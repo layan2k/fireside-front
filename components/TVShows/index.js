@@ -8,7 +8,7 @@ const ContainerHero = styled.div`
   height:200vh;
   overflow: hidden;
   position:relative;
-  background-color: #080708;
+  background-color: #010b20;
 `
 const Divider = styled.div`
     width: 100%;
@@ -57,6 +57,7 @@ const TVHero = () => {
     <>
         <ContainerHero>
         <NavLog />
+        <br />
         <Searchcomponent />
         <Divider />
         <Wrapper>

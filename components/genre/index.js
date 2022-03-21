@@ -1,19 +1,187 @@
 import React from 'react'
 import styled from 'styled-components'
+import NavLog from '../common/NavLog'
+import Searchcomponent from '../common/Searchcomponent'
+import GenreCompnent from './GenreComponent'
 
-const Container = styled.div`
-  height:100vh;
+const ContainerHero = styled.div`
+  height:auto;
   overflow: hidden;
   position:relative;
-  background-color: #080708
+  background-color: #010b20;
+`
+const Divider = styled.div`
+    width: 100%;
+    height: 2px;
+    background-color: #e6e6e6;
+    align-items: center;
+    justify-content: center;
 `
 
-const Genre = () => {
-  return (
-    <Container>
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
 
-    </Container>
+`
+const Headii = styled.div`
+    color: #e6e6e6;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
+`
+const HeadingTwo = styled.div`
+    color: #e6e6e6;
+    font-size: 10;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+`
+
+const VideoContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 40px;
+
+`
+const Linkdirc = styled.a`
+
+`
+
+const Footer = styled.footer`
+    color: #e6e6e6;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 15px;
+`
+
+
+const GenreHero = () => {
+  return (
+    <>
+        <ContainerHero>
+        <NavLog />
+        <br/>
+        <Searchcomponent />
+        <Divider />
+        <Wrapper>
+            <Headii>Genres</Headii>
+            <Divider />
+            <HeadingTwo>Action</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Drama</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Horror</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Comedy</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Fiction</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Romance</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Documentary</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Animation</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Fantasy</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Sports</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Spirituality</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <HeadingTwo>Sports</HeadingTwo>
+            <Divider />
+            <VideoContainer>
+                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+                <Linkdirc><GenreCompnent/></Linkdirc>
+            </VideoContainer>
+            <Divider />
+            <Footer>
+            ©️Copyright FireSide 2020
+            </Footer>
+
+
+        </Wrapper>
+
+
+        </ContainerHero>
+
+
+
+
+    </>
   )
 }
 
-export default Genre
+export default GenreHero

@@ -19,22 +19,35 @@ const Name = styled.h3`
     color: #e6e6e6;
     align-items: center;
     justify-content: center;
-    margin-left: 65px;
+    margin-left: 50px;
     margin-top: 2px;
 `
 const Linkto = styled.a`
+text-decoration: none;
 `
 
-const ProfileCard = () => {
+const ISSERVER = typeof window === "undefined"
+
+const Storage =(uuid) => {
+    const profilefilter =String(uuid)
+    if(!ISSERVER){
+      localStorage.setItem('movie_uuid', profilefilter)
+    }
+    console.log('saved')
+}
+
+
+const ProfileCard = ({profiles}) => {
+  const link = `all/`
   return (
     <>
-    <Linkto href='#'>
+    <Linkto href={link} onClick={Storage(profiles.uuid)}>
     <Square>
     <Smile>
         ^_^
     </Smile>
     </Square>
-    <Name>DEE</Name>
+    <Name>{profiles.name}</Name>
     </Linkto>
     </>
   )
