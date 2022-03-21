@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import axiosInstance from '../common/axios'
 import NavLog from '../common/NavLog'
 import ProfileCard from './profileCard'
 
@@ -57,18 +58,38 @@ margin-left: 610px;
 margin-right: 610px;
 margin-top: 40px;
 `
-const Profile = () => {
+
+
+
+
+
+export default class Profile extends React.Component  {
+    state = {
+        profiles: []
+    }
+   async componentDidMount(){
+         await axiosInstance
+        .get(`/api/profile/`).then(res => {
+            const profiles = res.data
+            this.setState({ profiles })
+            console.log(res.data)
+        }).catch((err) => {
+            console.log(err)
+        })
+        }
+
+        render() {
   return (
       <>
-      <NavLog logolink="/"/>
+      <NavLog logolink="/CreateProfile"/>
     <Container>
         <Wrapper>
             <WHos>Who&apos;s Watching?</WHos>
             <ProfileContainer>
-            <ProfileCard />
-            <ProfileCard />
-            <ProfileCard />
+               {this.state.profiles.map((profile) =>
+                    <ProfileCard key={profile.id} profiles={profile} />)}
             </ProfileContainer>
+
             <ButtonContainer>
             <CreateProfile href='\CreateProfile'>
                 <Squbx>
@@ -81,5 +102,4 @@ const Profile = () => {
     </>
   )
 }
-
-export default Profile
+}

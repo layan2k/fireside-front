@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Router from 'next/router'
 
 
 const ISSERVER = typeof window === "undefined"
@@ -44,9 +45,9 @@ axiosInstance.interceptors.response.use(
 
 		if (
 			error.response.status === 401 &&
-			originalRequest.url === baseURL + 'token/refresh/'
+			originalRequest.url === baseURL + '/auth/jwt/refresh/'
 		) {
-			window.location.href = '/login/';
+			Router.push('/login');
 			return Promise.reject(error);
 		}
 
@@ -66,7 +67,7 @@ axiosInstance.interceptors.response.use(
 
 				if (tokenParts.exp > now) {
 					return axiosInstance
-						.post('/token/refresh/', { refresh: refreshToken })
+						.post('/auth/jwt/refresh/', { refresh: refreshToken })
 						.then((response) => {
 							localStorage.setItem('access_token', response.data.access);
 							localStorage.setItem('refresh_token', response.data.refresh);
@@ -83,11 +84,11 @@ axiosInstance.interceptors.response.use(
 						});
 				} else {
 					console.log('Refresh token is expired', tokenParts.exp, now);
-					window.location.href = '/login/';
+					Router.push('/login');;
 				}
 			} else {
 				console.log('Refresh token not available.');
-				window.location.href = '/login/';
+				Router.push('/login');
 			}
 		}
 

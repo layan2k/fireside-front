@@ -5,10 +5,10 @@ import NavLog from '../../common/NavLog'
 import Searchcomponent from '../../common/Searchcomponent'
 
 const ContainerHero = styled.div`
-  height:200vh;
+  height:auto;
   overflow: hidden;
   position:relative;
-  background-color: #080708;
+  background-color: #010b20;
 `
 const Divider = styled.div`
     width: 100%;
@@ -57,6 +57,7 @@ const MovieHero = () => {
     <>
         <ContainerHero>
         <NavLog />
+        <br />
         <Searchcomponent />
         <Divider />
         <Wrapper>

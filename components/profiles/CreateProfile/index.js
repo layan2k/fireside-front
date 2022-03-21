@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import  Head  from 'next/head'
 import NavLog from '../../common/NavLog'
+import {useRouter} from 'next/router'
+import { useState } from 'react'
+import axiosInstance from '../../common/axios'
 
 const Container = styled.div`
   height:100vh;
@@ -96,7 +99,42 @@ const Sel = styled.select`
 `
 
 
+
 const MakeProfile = () => {
+
+  const router = useRouter()
+
+  const InitialFormFata = Object.freeze({
+    name: '',
+    age_limit: '',
+  })
+
+  const [formData, updateFormData] = useState(InitialFormFata);
+
+  const handleChange = (e) => {
+    updateFormData({
+      ...formData,
+      // Trimming any Whitespace
+      [e.target.name]: e.target.value.trim(),
+    })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    axiosInstance
+      .post(`/api/profile/create/`, {
+        name: formData.name,
+        age_limit: formData.age_limit,
+
+      })
+      .then((res) => {
+        router.push('/profiles');
+        console.log(res);
+        console.log(res.data);
+      });
+  };
+
   return (
     <>
     <Head>
@@ -106,12 +144,12 @@ const MakeProfile = () => {
       <NavLog/>
       <LoginCon>
         <Form>
-          <TypIn type="text" placeholder="Name" name="name" id="name"  required></TypIn>
-          <Sel>
+          <TypIn  type="text" placeholder="Name" name="name" id="name"  required onChange={handleChange}></TypIn>
+          <Sel name='age_limit' id='age_limit' onChange={handleChange}>
           <Opl value="All" id="All" name="All">All</Opl>
           <Opl value="Kids" id="Kids" name="Kids">Kids</Opl>
           </Sel>
-          <Button >Create</Button>
+          <Button onClick={handleSubmit} >Create</Button>
         </Form>
       </LoginCon>
 

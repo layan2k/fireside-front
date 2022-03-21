@@ -1,10 +1,10 @@
 import React from 'react'
-import Genre from '../components/genre'
+import GenreHero from '../components/genre'
 
 const genrePage = () => {
   return (
     <>
-        < Genre />
+        < GenreHero />
     </>
   )
 }
