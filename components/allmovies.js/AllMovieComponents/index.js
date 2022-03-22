@@ -20,10 +20,7 @@ const MovieTitle = styled.span`
 
 
 
-
-const MovieComponent = ({data}) => {
-  console.log(data.get_thumbnail)
-
+const MovieTVComponent = ({data}) => {
   return (
     <>
             <Container>
@@ -34,4 +31,4 @@ const MovieComponent = ({data}) => {
   )
 }
 
-export default MovieComponent
+export default MovieTVComponent

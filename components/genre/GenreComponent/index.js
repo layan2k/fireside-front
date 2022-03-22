@@ -20,12 +20,12 @@ const MovieTitle = styled.span`
 
 
 
-const GenreCompnent = () => {
+const GenreCompnent = ({data}) => {
   return (
     <>
             <Container>
-            <Image src="https://via.placeholder.com/1170x658"  alt='image' height='200px' width='300px'/>
-            <MovieTitle>Iron-Man(2008)</MovieTitle>
+            <Image src={data.get_thumbnail}  alt='image' height='200px' width='300px'/>
+            <MovieTitle>{data.title}</MovieTitle>
             </Container>
     </>
   )

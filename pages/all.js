@@ -1,8 +1,12 @@
 import React from 'react'
+import AllMovies from '../components/allmovies.js'
 
 const All = () => {
   return (
-    <div>All</div>
+    <>
+      <AllMovies />
+
+    </>
   )
 }
 

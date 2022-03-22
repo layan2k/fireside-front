@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import MovieComponent from '.'
 import NavLog from '../../common/NavLog'
 import Searchcomponent from '../../common/Searchcomponent'
+import {useState, useEffect} from 'react'
+import axiosInstance from '../../common/axios'
 
 const ContainerHero = styled.div`
+  min-height: 150vh;
   height:auto;
   overflow: hidden;
   position:relative;
@@ -50,33 +53,61 @@ const Footer = styled.footer`
     text-align: center;
     font-size: 15px;
 `
+const ISSERVER = typeof window === "undefined"
+
+const Storage =() => {
+    let movieuuid = ''
+    if(!ISSERVER){
+        movieuuid = localStorage.getItem('movie_age')
+    }
+    return movieuuid
+}
+
+const age = Storage()
 
 
 const MovieHero = () => {
+    const [Query, setQuery] = useState("");
+    const [GetData, setGetData] = useState([]);
+
+    // Get Response
+    const getMovies =  async() => {
+        const response = await axiosInstance.get("/api/video/")
+        return response.data
+    }
+
+    useEffect(() => {
+
+        const getAllMovies = async () => {
+            const AllMovies = await getMovies();
+            if(AllMovies) setGetData(AllMovies);
+        }
+        getAllMovies();
+    }, []);
+
   return (
+
     <>
         <ContainerHero>
         <NavLog />
         <br />
-        <Searchcomponent />
+        <Searchcomponent Query={Query} setQuery={setQuery}  />
         <Divider />
         <Wrapper>
             <Headii>Movies</Headii>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
-                <Linkdirc><MovieComponent/></Linkdirc>
+                {GetData.filter((movies)=> movies.movie_type.includes("single",Query, age)).map((movres) =>
+                <Linkdirc  key={movres.id} href='#'>
+                        <MovieComponent data={movres}/>
+                        </Linkdirc>
+
+                )}
+
             </VideoContainer>
             <Divider />
             <Footer>
-            ©️Copyright FireSide 2020
+            ©️Copyright FireSide 2022
             </Footer>
 
 
@@ -90,6 +121,7 @@ const MovieHero = () => {
 
     </>
   )
+
 }
 
 export default MovieHero
