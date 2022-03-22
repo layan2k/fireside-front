@@ -97,7 +97,7 @@ const MovieHero = () => {
             <Headii>Movies</Headii>
             <Divider />
             <VideoContainer>
-                {GetData.filter((movies)=> movies.movie_type.includes("single",Query, age)).map((movres) =>
+                {GetData.filter((movies)=> movies.movie_type.includes("single")).filter((que)=> que.title.includes(Query)).filter((agl)=> agl.age_limit.includes(age)).map((movres) =>
                 <Linkdirc  key={movres.id} href='#'>
                         <MovieComponent data={movres}/>
                         </Linkdirc>

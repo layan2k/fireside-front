@@ -7,7 +7,8 @@ import axiosInstance from '../common/axios'
 import {useEffect , useState} from 'react'
 
 const ContainerHero = styled.div`
-  height:200vh;
+  min-height:200vh;
+  height: auto;
   overflow: hidden;
   position:relative;
   background-color: #010b20;
@@ -95,7 +96,7 @@ const TVHero = () => {
             <Headii>TV Shows</Headii>
             <Divider />
             <VideoContainer>
-                {GetData.filter((tv) => tv.movie_type.includes('seasonal', Query)).map((tvshows)=>
+                {GetData.filter((tv) => tv.movie_type.includes('seasonal')).filter((que)=>que.movie_type.title.include(Query)).filter((agl)=> agl.age_limit.includes(age)).map((tvshows)=>
                     <Linkdirc key={tvshows.id} href='#'><TVComponent data={tvshows}/></Linkdirc>
                 )}
 

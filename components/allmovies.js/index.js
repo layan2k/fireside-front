@@ -97,7 +97,7 @@ const AllMovies = () => {
                 <Headii>Latest</Headii>
                 <Divider />
                 <VideoContainer>
-                    {GetData.filter((movies)=> movies.age_limit.includes(Query, age)).map((movres)=>
+                    {GetData.filter((movies)=> movies.title.includes(Query)).filter((agl)=> agl.age_limit.includes(age)).map((movres)=>
                     <Linkdirc key={movres.id} href='#'>
                     <MovieTVComponent data={movres}/>
                     </Linkdirc>
