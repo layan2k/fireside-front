@@ -12,7 +12,7 @@ const Storage =() => {
     return token
 }
 
-const baseURL = 'http://127.0.0.1:8000/';
+const baseURL = 'https://firesidebackapp.herokuapp.com/';
 
 
 const axiosInstance = axios.create({
