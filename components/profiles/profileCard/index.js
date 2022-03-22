@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Container = styled.div``
+
 const Square = styled.div`
     width: 160px;
     height: 160px;
@@ -31,7 +33,10 @@ const ISSERVER = typeof window === "undefined"
 const Storage =(uuid) => {
     const profilefilter =String(uuid)
     if(!ISSERVER){
-      localStorage.setItem('movie_uuid', profilefilter)
+      if (localStorage.getItem('movie_age')) {
+        localStorage.removeItem('movie_age')
+      }
+      localStorage.setItem('movie_age', profilefilter)
     }
     console.log('saved')
 }
@@ -39,9 +44,11 @@ const Storage =(uuid) => {
 
 const ProfileCard = ({profiles}) => {
   const link = `all/`
+  const id = profiles.age_limit
   return (
     <>
-    <Linkto href={link} onClick={Storage(profiles.uuid)}>
+    <Container>
+    <Linkto href={link} onClick={Storage(id)}>
     <Square>
     <Smile>
         ^_^
@@ -49,7 +56,9 @@ const ProfileCard = ({profiles}) => {
     </Square>
     <Name>{profiles.name}</Name>
     </Linkto>
+    </Container>
     </>
+
   )
 }
 

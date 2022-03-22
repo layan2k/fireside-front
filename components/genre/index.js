@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import axiosInstance from '../common/axios'
 import NavLog from '../common/NavLog'
 import Searchcomponent from '../common/Searchcomponent'
 import GenreCompnent from './GenreComponent'
+import {useState , useEffect} from 'react'
 
 const ContainerHero = styled.div`
   height:auto;
@@ -58,15 +60,43 @@ const Footer = styled.footer`
     text-align: center;
     font-size: 15px;
 `
+const ISSERVER = typeof window === "undefined"
 
+const Storage =() => {
+    let movieuuid = ''
+    if(!ISSERVER){
+        movieuuid = localStorage.getItem('movie_age')
+    }
+    return movieuuid
+}
+
+const age = Storage()
 
 const GenreHero = () => {
+    const [Query, setQuery] = useState("");
+    const [GetData, setGetData] = useState([]);
+
+    // Get Response
+    const getMovies =  async() => {
+        const response = await axiosInstance.get("/api/video/")
+        return response.data
+    }
+
+    useEffect(() => {
+
+        const getTVShows = async () => {
+            const TVShows = await getMovies();
+            if(TVShows) setGetData(TVShows);
+        }
+        getTVShows();
+    }, []);
+
   return (
     <>
         <ContainerHero>
         <NavLog />
         <br/>
-        <Searchcomponent />
+        <Searchcomponent  Query={Query} setQuery={setQuery}/>
         <Divider />
         <Wrapper>
             <Headii>Genres</Headii>
@@ -74,101 +104,96 @@ const GenreHero = () => {
             <HeadingTwo>Action</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+                {GetData.filter((gen)=> gen.genre.includes('action', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Drama</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('drama', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Horror</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('horror', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Comedy</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('comedy', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Fiction</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('fiction', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Romance</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('romance', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Documentary</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('documentary', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Animation</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('animation', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Fantasy</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('fantasy', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Sports</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('sports', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Spirituality</HeadingTwo>
             <Divider />
             <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
+            {GetData.filter((gen)=> gen.genre.includes('spirituality', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
+                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                )}
             </VideoContainer>
             <Divider />
             <HeadingTwo>Sports</HeadingTwo>
             <Divider />
-            <VideoContainer>
-                <Linkdirc href='#'><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-                <Linkdirc><GenreCompnent/></Linkdirc>
-            </VideoContainer>
-            <Divider />
+
             <Footer>
-            ©️Copyright FireSide 2020
+            ©️Copyright FireSide 2022
             </Footer>
 
 

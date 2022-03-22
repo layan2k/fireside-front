@@ -1,8 +1,11 @@
 import React from 'react'
+import Watch from '../components/watch'
 
 const video = () => {
   return (
-    <div>video</div>
+    <>
+    <Watch />
+      </>
   )
 }
 

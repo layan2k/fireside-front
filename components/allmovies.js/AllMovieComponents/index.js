@@ -17,6 +17,7 @@ const MovieTitle = styled.span`
   justify-content: center;
   text-align: center;
 `
+
 const ISSERVER = typeof window === "undefined"
 
 const StorageUUID =(movieuuid) => {
@@ -30,8 +31,7 @@ const StorageUUID =(movieuuid) => {
 }
 
 
-
-const GenreCompnent = ({data}) => {
+const MovieTVComponent = ({data}) => {
   return (
     <>
             <Container onClick={StorageUUID(data.uuid)}>
@@ -42,4 +42,4 @@ const GenreCompnent = ({data}) => {
   )
 }
 
-export default GenreCompnent
+export default MovieTVComponent

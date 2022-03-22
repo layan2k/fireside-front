@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import axiosInstance from '../common/axios'
 import NavLog from '../common/NavLog'
 import Searchcomponent from '../common/Searchcomponent'
-import TVComponent from './TVComponent'
-import axiosInstance from '../common/axios'
-import {useEffect , useState} from 'react'
+import MovieTVComponent from './AllMovieComponents'
+import {useState, useEffect} from 'react'
 
 const ContainerHero = styled.div`
-  min-height:200vh;
-  height: auto;
+  height:auto;
   overflow: hidden;
   position:relative;
   background-color: #010b20;
@@ -63,12 +62,14 @@ const Storage =() => {
     return movieuuid
 }
 
-const age = Storage()
+const age = String(Storage())
 
-const TVHero = () => {
 
-        const [Query, setQuery] = useState("");
-        const [GetData, setGetData] = useState([]);
+
+
+const AllMovies = () => {
+    const [Query, setQuery] = useState("");
+    const [GetData, setGetData] = useState([]);
 
         // Get Response
         const getMovies =  async() => {
@@ -78,46 +79,47 @@ const TVHero = () => {
 
         useEffect(() => {
 
-            const getTVShows = async () => {
-                const TVShows = await getMovies();
-                if(TVShows) setGetData(TVShows);
+            const getAllMovies = async () => {
+                const AllMovies = await getMovies();
+                if(AllMovies) setGetData(AllMovies);
             }
-            getTVShows();
+            getAllMovies();
         }, []);
 
-  return (
-    <>
-        <ContainerHero>
-        <NavLog />
-        <br />
-        <Searchcomponent Query={Query} setQuery={setQuery} />
-        <Divider />
-        <Wrapper>
-            <Headii>TV Shows</Headii>
+    return (
+        <>
+            <ContainerHero>
+            <NavLog/>
+            <br />
+            <Searchcomponent Query={Query} setQuery={setQuery}/>
             <Divider />
-            <VideoContainer>
-                {GetData.filter((tv) => tv.movie_type.includes('seasonal')).filter((que)=>que.movie_type.title.include(Query)).filter((agl)=> agl.age_limit.includes(age)).map((tvshows)=>
-                    <Linkdirc key={tvshows.id} href='#'><TVComponent data={tvshows}/></Linkdirc>
-                )}
+            <Wrapper>
+                <Headii>Latest</Headii>
+                <Divider />
+                <VideoContainer>
+                    {GetData.filter((movies)=> movies.title.includes(Query)).filter((agl)=> agl.age_limit.includes(age)).map((movres)=>
+                    <Linkdirc key={movres.id} href='#'>
+                    <MovieTVComponent data={movres}/>
+                    </Linkdirc>
+                    )}
+
+                </VideoContainer>
+                <Divider />
+                <Footer>
+                ©️Copyright FireSide 2022
+                </Footer>
 
 
-            </VideoContainer>
-            <Divider />
-            <Footer>
-            ©️Copyright FireSide 2020
-            </Footer>
+            </Wrapper>
 
 
-        </Wrapper>
-
-
-        </ContainerHero>
+            </ContainerHero>
 
 
 
 
-    </>
-  )
-}
+        </>
 
-export default TVHero
+)}
+
+export default AllMovies

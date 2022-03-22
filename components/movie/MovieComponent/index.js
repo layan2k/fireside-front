@@ -17,15 +17,28 @@ const MovieTitle = styled.span`
   justify-content: center;
   text-align: center;
 `
+const ISSERVER = typeof window === "undefined"
+
+const StorageUUID =(movieuuid) => {
+  const movieid = String(movieuuid)
+  if(!ISSERVER){
+      if (localStorage.getItem('movieuuid')){
+          localStorage.removeItem('movieuuid')
+      }
+  }
+  localStorage.setItem("movieuuid", movieid)
+}
 
 
 
-const MovieComponent = () => {
+const MovieComponent = ({data}) => {
+  console.log(data.get_thumbnail)
+
   return (
     <>
-            <Container>
-            <Image src="https://via.placeholder.com/1170x658"  alt='image' height='200px' width='300px'/>
-            <MovieTitle>Iron-Man(2008)</MovieTitle>
+            <Container onClick={StorageUUID(data.uuid)}>
+            <Image src={data.get_thumbnail}  alt='image' height='200px' width='300px'/>
+            <MovieTitle>{data.title}</MovieTitle>
             </Container>
     </>
   )
