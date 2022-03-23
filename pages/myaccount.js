@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import NavLog from '../components/common/NavLog'
 import {useRouter} from 'next/router'
+import Head from 'next/head'
 
 const Container = styled.div`
     min-height: 100vh;
@@ -72,6 +73,9 @@ const MyAccount = () => {
     const Router = useRouter()
   return (
       <>
+    <Head>
+      <title>My Account</title>
+    </Head>
       <NavLog />
     <Container>
 
