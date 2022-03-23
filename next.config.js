@@ -13,6 +13,7 @@ module.exports = {
               'http://127.0.0.1:8000',
               '127.0.0.1',
               'firesidebackapp.herokuapp.com',
+              'firesidebackapp.s3.amazonaws.com',
   ],
   },
 }
