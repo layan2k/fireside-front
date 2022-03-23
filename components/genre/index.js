@@ -105,7 +105,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
                 {GetData.filter((gen)=> gen.genre.includes('action', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -113,7 +113,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('drama', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -121,7 +121,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('horror', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -129,7 +129,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('comedy', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -137,7 +137,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('fiction', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -145,7 +145,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('romance', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -153,7 +153,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('documentary', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -161,7 +161,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('animation', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -169,7 +169,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('fantasy', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -177,7 +177,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('sports', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />
@@ -185,7 +185,7 @@ const GenreHero = () => {
             <Divider />
             <VideoContainer>
             {GetData.filter((gen)=> gen.genre.includes('spirituality', Query)).filter((agl)=> agl.age_limit.includes(age)).filter((que)=> que.title.includes(Query)).map((genref)=>
-                    <Linkdirc key={genref.id} href='#'><GenreCompnent data={genref}/></Linkdirc>
+                    <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
             <Divider />

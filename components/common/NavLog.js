@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { useRouter } from "next/router"
 
 
 
@@ -104,6 +105,10 @@ const Link = styled.a`
 
 
 const NavLog = ({logolink, login, signup}) => {
+    const router = useRouter()
+    const accontredirect= () =>{
+        router.push('/myaccount')
+    }
   return (
     <Container>
         <Wrapper>
@@ -118,7 +123,7 @@ const NavLog = ({logolink, login, signup}) => {
                 </Center>
             </Menu>
             <Right>
-                <AcoountSqr>
+                <AcoountSqr onClick={accontredirect}>
                     <i className="fi fi-rr-user" style={{color:"#e6e6e6"}}></i>
                     <AccountText>My Account</AccountText>
                 </AcoountSqr>

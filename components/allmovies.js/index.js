@@ -8,6 +8,7 @@ import {useState, useEffect} from 'react'
 
 const ContainerHero = styled.div`
   height:auto;
+  min-height: 100vh;
   overflow: hidden;
   position:relative;
   background-color: #010b20;
@@ -98,7 +99,7 @@ const AllMovies = () => {
                 <Divider />
                 <VideoContainer>
                     {GetData.filter((movies)=> movies.title.includes(Query)).filter((agl)=> agl.age_limit.includes(age)).map((movres)=>
-                    <Linkdirc key={movres.id} href='#'>
+                    <Linkdirc key={movres.id} href='/video'>
                     <MovieTVComponent data={movres}/>
                     </Linkdirc>
                     )}

@@ -97,7 +97,7 @@ const TVHero = () => {
             <Divider />
             <VideoContainer>
                 {GetData.filter((tv) => tv.movie_type.includes('seasonal')).filter((que)=>que.movie_type.title.include(Query)).filter((agl)=> agl.age_limit.includes(age)).map((tvshows)=>
-                    <Linkdirc key={tvshows.id} href='#'><TVComponent data={tvshows}/></Linkdirc>
+                    <Linkdirc key={tvshows.id} href='/video'><TVComponent data={tvshows}/></Linkdirc>
                 )}
 
 

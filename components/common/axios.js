@@ -1,6 +1,7 @@
 import axios from 'axios'
-import Router from 'next/router'
+import useRouter from 'next/router'
 
+const Router = useRouter
 
 const ISSERVER = typeof window === "undefined"
 
