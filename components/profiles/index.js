@@ -25,6 +25,11 @@ const ProfileContainer = styled.div`
     display: flex;
     justify-content:space-evenly ;
     align-items: center;
+
+    @media only screen and (max-width:480px){
+        flex-direction:column;
+        align-items: center;
+        }
 `
 const CreateProfile = styled.a`
   width: 200px;
