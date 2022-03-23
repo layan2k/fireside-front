@@ -28,27 +28,18 @@ const Linkto = styled.a`
 text-decoration: none;
 `
 
-const ISSERVER = typeof window === "undefined"
-
-const Storage =(uuid) => {
-    const profilefilter =String(uuid)
-    if(!ISSERVER){
-      if (localStorage.getItem('movie_age')) {
-        localStorage.removeItem('movie_age')
-      }
-      localStorage.setItem('movie_age', profilefilter)
-    }
-    console.log('saved')
-}
 
 
 const ProfileCard = ({profiles}) => {
   const link = `all/`
-  const id = profiles.age_limit
+  const setAge =  () =>{
+    localStorage.setItem('movie_age', profiles.age_limit)
+  }
+
   return (
     <>
     <Container>
-    <Linkto href={link} onClick={Storage(id)}>
+    <Linkto href={link} onClick={setAge}>
     <Square>
     <Smile>
         ^_^

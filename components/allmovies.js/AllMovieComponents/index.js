@@ -18,23 +18,14 @@ const MovieTitle = styled.span`
   text-align: center;
 `
 
-const ISSERVER = typeof window === "undefined"
-
-const StorageUUID =(movieuuid) => {
-  const movieid = String(movieuuid)
-  if(!ISSERVER){
-      if (localStorage.getItem('movieuuid')){
-          localStorage.removeItem('movieuuid')
-      }
-  }
-  localStorage.setItem("movieuuid", movieid)
-}
-
 
 const MovieTVComponent = ({data}) => {
+  const setUUID = () =>{
+    localStorage.setItem('movieuuid', data.uuid)
+  }
   return (
     <>
-            <Container onClick={StorageUUID(data.uuid)}>
+            <Container onClick={setUUID}>
             <Image src={data.get_thumbnail}  alt='image' height='200px' width='300px'/>
             <MovieTitle>{data.title}</MovieTitle>
             </Container>
