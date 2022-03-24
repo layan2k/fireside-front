@@ -58,15 +58,16 @@ const Button = styled.button`
 `
 
 
-const Logout = (router) =>{
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('refresh_token')
-        router.push('/')
-    }
 
 
 const MyAccount = () => {
-    const Router = useRouter()
+    const router = useRouter()
+    const Logout = () =>
+    {
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
+      router.push('/')
+  }
   return (
       <>
     <Head>
@@ -78,7 +79,7 @@ const MyAccount = () => {
         <Wrapper>
             <MyAcc>Manage Account</MyAcc>
             <TBD>To Be Futher Developed</TBD>
-            <Button onClick={Logout(Router)}>LogOut</Button>
+            <Button onClick={Logout}>LogOut</Button>
 
         </Wrapper>
     </Container>
