@@ -58,14 +58,12 @@ const Button = styled.button`
 `
 
 
-const ISSERVER = typeof window === "undefined"
-
 const Logout = (router) =>{
         localStorage.removeItem('access_token')
         localStorage.removeItem('refresh_token')
         router.push('/')
     }
-}
+
 
 const MyAccount = () => {
     const Router = useRouter()
