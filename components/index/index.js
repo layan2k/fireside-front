@@ -21,9 +21,9 @@ const Logo = styled.h1`
 
 `
 
-
 const Container = styled.div`
-  height:100vh;
+  min-height:100vh;
+  height: auto;
   overflow: hidden;
   position:relative;
   width: 100%;
@@ -53,8 +53,9 @@ const Footer = styled.footer`
     text-align: center;
     font-size: 15px;
     background-color: #010b13;
-    height: 25px;
+    height: 50px;
     align-items: center;
+    justify-content: center;
 `
 const ISSERVER = typeof window === "undefined"
 
@@ -90,8 +91,8 @@ export default function Home() {
 
       <Text />
 
-      <Footer >©️Copyright FireSide 2022</Footer>
     </Container>
+      <Footer >©️Copyright FireSide 2022</Footer>
     </div>
   )
 }

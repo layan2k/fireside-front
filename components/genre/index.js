@@ -56,9 +56,12 @@ const Linkdirc = styled.a`
 
 const Footer = styled.footer`
     color: #e6e6e6;
-    margin-top: 50px;
     text-align: center;
     font-size: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 30px;
 `
 const ISSERVER = typeof window === "undefined"
 
@@ -188,17 +191,12 @@ const GenreHero = () => {
                     <Linkdirc key={genref.id} href='/video'><GenreCompnent data={genref}/></Linkdirc>
                 )}
             </VideoContainer>
-            <Divider />
-            <HeadingTwo>Sports</HeadingTwo>
-            <Divider />
-
-            <Footer>
-            ©️Copyright FireSide 2022
-            </Footer>
 
 
         </Wrapper>
-
+        <Footer>
+            ©️Copyright FireSide 2022
+        </Footer>
 
         </ContainerHero>
 

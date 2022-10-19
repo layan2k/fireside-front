@@ -48,6 +48,7 @@ const TypIn = styled.input`
     color: #e6e6e6;
     text-align: center;
     font-size: 16px;
+    outline: none;
     border: none;
     @media only screen and (max-width:480px){
         background-color: #e6e6e6;

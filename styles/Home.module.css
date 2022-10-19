@@ -1,5 +1,5 @@
 .main{
-  background-image: url('../public/pexels-august-de-richelieu-4260643.jpg');
+  background: linear-gradient( rgba(59, 59, 59, 0.54), rgba(1 11 19  / 100%)), url('../public/pexels-august-de-richelieu-4260643.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 0 4px 8 0 rgba(0, 0, 0, 0.2), 0 6px 20ox 0 rgba(0, 0, 0, 0.19);
