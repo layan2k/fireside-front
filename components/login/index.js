@@ -29,6 +29,10 @@ const Form = styled.form`
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  h1 {
+    color: red;
+    font-size: 15px;
+  }
   @media only screen and (max-width:480px){
       width: 100%;
       margin-top: 25px;
@@ -93,6 +97,7 @@ const Login = () => {
   })
 
 const [formData, updateFormData] = useState(InitialFormFata);
+const [errMsg, updateErrMsg] = useState('')
 
 const handleChange = (e) => {
   updateFormData({
@@ -104,7 +109,6 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log(formData);
 
   axiosInstance
     .post(`/auth/jwt/create`, {
@@ -120,7 +124,15 @@ const handleSubmit = (e) => {
 				//console.log(res);
 				//console.log(res.data);
 			}).catch((err) =>{
-        console.log(err)
+        let ErMsg = err.response.data.detail
+        console.log('Error', err.response.data.detail)
+        if(typeof ErMsg === "undefined"){
+          updateErrMsg("Invalid Details")
+        }
+        else{
+
+          updateErrMsg(err.response.data.detail)
+        }
       });
 	};
 
@@ -133,6 +145,7 @@ const handleSubmit = (e) => {
       <SignNav butn="Sign Up" btnlin="/signup" link="/" />
       <LoginCon>
         <Form>
+          {errMsg && <h1>{errMsg}</h1>}
           <TypIn type="text" placeholder="Username" name="username" id="username" onChange={handleChange} required></TypIn>
           <TypIn type="password" placeholder="Password" onChange={handleChange} name="password" id="password" required></TypIn>
           <Button onClick={handleSubmit}>login</Button>

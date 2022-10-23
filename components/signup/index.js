@@ -29,6 +29,10 @@ const Form = styled.form`
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  h1 {
+    color: red;
+    font-size: 15px;
+  }
   @media only screen and (max-width:480px){
       width: 100%;
       margin-top: 25px;
@@ -98,6 +102,7 @@ const Signup = () => {
   })
 
 const [formData, updateFormData] = useState(InitialFormFata);
+const [errMsg, updateErrMsg] = useState('')
 
 const handleChange = (e) => {
   updateFormData({
@@ -122,7 +127,17 @@ const handleSubmit = (e) => {
       router.push('/login');
       console.log(res);
       console.log(res.data);
-    });
+    }).catch((err)=>{
+      let ErMsg = err.response.data.detail
+      console.log('Error', err.response.data.detail)
+      if(typeof ErMsg === "undefined"){
+        updateErrMsg("Invalid Details")
+      }
+      else{
+
+        updateErrMsg(err.response.data.detail)
+      }
+    })
 };
 
   return (
@@ -133,6 +148,7 @@ const handleSubmit = (e) => {
       <SignNav butn="Sign In" btnlin="/login" link="/" />
       <SignUp>
         <Form method="POST">
+          {errMsg && <h1>{errMsg}</h1>}
           <TypIn onChange={handleChange} type="text" placeholder="Username" name="username" id="username" required></TypIn>
           <TypIn onChange={handleChange} type="text" placeholder="Email" name="email" id="email" required></TypIn>
           <TypIn onChange={handleChange} type="password" placeholder="Password" name="password" id="password" required></TypIn>
